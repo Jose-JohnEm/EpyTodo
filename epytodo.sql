@@ -7,7 +7,7 @@ CREATE TABLE user (
     username varchar(255) NOT NULL,
     password varchar(255) NOT NULL,
     PRIMARY KEY (user_id)
-) AUTO_INCREMENT=1 ;
+) AUTO_INCREMENT=1;
 
 CREATE TABLE task (
     task_id INT NOT NULL AUTO_INCREMENT,

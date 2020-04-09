@@ -15,18 +15,28 @@ connection = sql.connect(host = DATABASE_HOST,
                         db = DATABASE_NAME
                     )
 
-# try:
-## Write in table
-#     with connection.cursor() as cursor:
-#         sql = "INSERT INTO user (username, password) VALUES (%s, %s)"
-#         cursor.execute(sql, ('Salameche', 'IamApokemon'))
-#     connection.commit()
-#
-## Read in table
-#     with connection.cursor() as cursor:
-#         sql = "SELECT user_id, username FROM user"
-#         cursor.execute(sql)
-#         result = cursor.fetchall()
-#         print(result)
+# input_username = "Kino"
+# input_pass = "passwd"
+
+try:
+# Write in table
+    # with connection.cursor() as cursor:
+    #     sql = "INSERT INTO user (username, password) VALUES (%s, %s)"
+    #     cursor.execute(sql, ('Kino', 'passwd'))
+    # connection.commit()
+
+# Read in table
+    # with connection.cursor() as cursor:
+    #     sql = "SELECT user_id FROM user WHERE username =%s and password =%s"
+    #     cursor.execute(sql, (input_username, input_pass))
+    #     result = cursor.fetchall()
+    #     print(result)
+    #     user_id = result
+# Read task for user
+    # with connection.cursor() as cursor:
+    #     sql = "SELECT * FROM task INNER JOIN user_has_task WHERE user_has_task.fk_user_id = %s and task.task_id = user_has_task.fk_task_id"
+    #     cursor.execute(sql, (user_id))
+    #     result = cursor.fetchall()
+    #     print(result)
 # finally:
 #     connection.close()
