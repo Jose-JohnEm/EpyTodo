@@ -18,7 +18,7 @@ connection = sql.connect(host = DATABASE_HOST,
 # input_username = "Kino"
 # input_pass = "passwd"
 
-try:
+#try:
 # Write in table
     # with connection.cursor() as cursor:
     #     sql = "INSERT INTO user (username, password) VALUES (%s, %s)"
