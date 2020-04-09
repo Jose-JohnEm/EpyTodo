@@ -1,6 +1,7 @@
 from app import app
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, redirect, request
 import pymysql as sql
+from forms import SignUpForm
 
 @app.route('/', methods=['GET'])
 @app.route('/index', methods=['GET'])
@@ -13,4 +14,8 @@ def register():
 
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():
-        return render_template("signin.html")
+        form = SignUpForm()
+        if form.is_submitted():
+                result = request.form
+                return render_template("yes.html", result=result)
+        return render_template("signin.html", form=form)
