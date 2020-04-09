@@ -29,12 +29,13 @@
           </div>
           <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="/">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Contact</a></li>
+              <li class="{{ 'active' if active_page == 'index' else '' }}"><a href="/">Home</a></li>
+              <li class="{{ 'active' if active_page == 'about' else '' }}"><a href="#">About</a></li>
+              <li class="{{ 'active' if active_page == 'contact' else '' }}"><a href="/contact">Contact</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <a href="/signin" type="button" class="btn btn-primary navbar-btn"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Sign in</a>
+              <li class="{{ 'active' if active_page == 'register' else '' }}"><a href="/register">Register</a></li>
+              <li class="{{ 'active' if active_page == 'signin' else '' }}"><a href="/signin">Sign in</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
