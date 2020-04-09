@@ -10,7 +10,11 @@ def home():
 
 @app.route('/register/', methods=['GET', 'POST'])
 def register():
-        return render_template("register.html")
+        form = SignUpForm()
+        if form.is_submitted():
+                result = request.form
+                return render_template("yes.html", result=result)
+        return render_template("register.html", form=form)
 
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():
