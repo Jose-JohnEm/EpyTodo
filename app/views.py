@@ -18,21 +18,24 @@ def home():
 def register():
         if request.method == 'POST':
             user_id = add_user((request.form['username']), request.form['password'])
+            return redirect('/task')
         return render_template("register.html")
 
 @app.route('/signin/', methods=['GET', 'POST'])
 def signin():
         if request.method == 'POST':
-                check_user(request.form['username'], request.form['password'])
+            user_id = check_user(request.form['username'], request.form['password'])
+            if user_id != None:
+                redirect('/task')
         return render_template("signin.html")
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
         return render_template("contact.html")
 
-@app.route('/todo/', methods=['GET', 'POST'])
+@app.route('/task/', methods=['GET', 'POST'])
 def todo():
-    user_id = 1 # A SUPR
+    print("USER ID ==>", user_id)
     if request.method == 'POST':
         create_task(user_id, request.form['title'], request.form['begin'], request.form['end'])
     return render_template("todo.html", usertasks=get_task(user_id), lenght=len(get_task(user_id)))

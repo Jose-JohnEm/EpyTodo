@@ -27,7 +27,6 @@ def get_task(user_id):
             sql = "SELECT * FROM task INNER JOIN user_has_task WHERE user_has_task.fk_user_id = %s and task.task_id = user_has_task.fk_task_id"
             cursor.execute(sql, (user_id))
             result = cursor.fetchall()
-            print(result)
             return(result)
     finally:
         cursor.close()

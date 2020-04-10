@@ -9,6 +9,6 @@ def check_user(username, userpass):
             sql = "SELECT user_id FROM user WHERE username =%s and password =%s"
             cursor.execute(sql, (username, userpass))
             user_id = cursor.fetchone()
-            print(user_id)
     finally:
-            cursor.close()
+        cursor.close()
+    return user_id
