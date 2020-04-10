@@ -5,9 +5,7 @@ from forms import SignUpForm
 from config import connection
 from string import lower
 
-def add_user():
-    username = lower(request.form['username'])
-    userpass = request.form['password']
+def add_user(username, userpass):
     base = user_in_base(username)
     if base == False:
         try:
