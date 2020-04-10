@@ -17,8 +17,8 @@ def register():
             add_user(lower(request.form['username']), request.form['password'])
         return render_template("register.html")
 
-@app.route('/signin', methods=['GET', 'POST'])
-def signin( ):
+@app.route('/signin/', methods=['GET', 'POST'])
+def signin():
         if request.method == 'POST':
                 check_user(request.form['username'], request.form['password'])
         return render_template("signin.html")
