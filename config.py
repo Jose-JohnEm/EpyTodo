@@ -6,7 +6,7 @@ DATABASE_NAME = 'epytodo'
 DATABASE_HOST = 'localhost'
 DATABASE_SOCK = '/run/mysqld/mysqld.sock'
 DATABASE_USER = 'root'
-DATABASE_PASS = ''
+DATABASE_PASS = 'azerty'
 
 connection = sql.connect(host = DATABASE_HOST,
                         unix_socket = DATABASE_SOCK,

@@ -35,4 +35,8 @@ def todo():
     user_id = 1 # A SUPR
     if request.method == 'POST':
         create_task(user_id, request.form['title'], request.form['begin'], request.form['end'])
-    return render_template("todo.html", user_tasks=get_task(user_id))
+    return render_template("todo.html", usertasks=get_task(user_id), lenght=len(get_task(user_id)))
+
+@app.route('/user', methods=['GET', 'POST'])
+def user():
+        return render_template("user.html")
