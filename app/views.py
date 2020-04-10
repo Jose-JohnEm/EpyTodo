@@ -4,7 +4,7 @@ import pymysql as sql
 from config import connection
 from .register import add_user
 from .signin import check_user
-from .add_task import add_task
+from .task import create_task
 
 @app.route('/', methods=['GET'])
 @app.route('/index', methods=['GET'])
@@ -29,6 +29,6 @@ def contact():
 
 @app.route('/todo', methods=['GET', 'POST'])
 def todo():
-        if request.method == 'POST':
-                add_task(request.form['title'], request.form['begin'], request.form['end'])
-        return render_template("todo.html")
+    if request.method == 'POST':
+        create_task(request.form['title'], request.form['begin'], request.form['end'])
+    return render_template("todo.html")
