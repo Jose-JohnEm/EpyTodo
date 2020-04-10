@@ -13,7 +13,8 @@ def create_task(user_id, title, begin, end, status):
             sql = "SELECT MAX(task_id) FROM task"
             cursor.execute(sql)
             connection.commit()
-            task_id = cursor.fetchone().[0]
+            task_id = cursor.fetchone()
+            task_id = task_id[0]
             sql = "INSERT INTO user_has_task (fk_user_id, fk_task_id) VALUES (%s, %s)"
             cursor.execute(sql, (user_id, task_id))
             connection.commit()
