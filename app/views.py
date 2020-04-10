@@ -21,3 +21,11 @@ def signin():
         if request.method == 'POST':
                 check_user(request.form['username'], request.form['password'])
         return render_template("signin.html")
+
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+        return render_template("contact.html")
+
+@app.route('/todo', methods=['GET', 'POST'])
+def todo():
+        return render_template("todo.html")
