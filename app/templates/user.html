@@ -1,0 +1,43 @@
+{% set active_page = "user" %}
+{% include "header.html" %}
+<div class="jumbotron">
+  <div class="container" style="text-align: center;">
+    <h1>USERNAME</h1>
+    <p>Welcome to your beautiful profile page !</p>
+  </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3 col-md-5">
+            <img src="https://pm1.narvii.com/6218/197a9a06397c3c7aed4e00b0dd360a238a725f92_00.jpg" alt="..."class="img-circle" style="width: 50%;">
+            <h1>USERNAME</h1>
+            <p>email@email.com</p>
+            <p>You got $NB_TASK tasks</p>
+            <button class="btn btn-default">View your tasks</button>
+          </div>
+        <div class="col-sm-3 col-md-6">
+            <h1>CHANGE YOUR INFO</h1>
+            <form>
+                <div class="form-group">
+                  <label for="inputUsername">Username</label>
+                  <input type="text" class="form-control" id="inputUsername" placeholder="Username">
+                </div>
+                <div class="form-group">
+                  <label for="inputPassword">Password</label>
+                  <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail">Email</label>
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                  </div>
+                <div class="form-group">
+                  <label for="inputAvatar">Avatar URL</label>
+                  <input type="text" class="form-control" id="inputAvatar" placeholder="Avatar">
+                </div>  
+                <button type="submit" class="btn btn-default">Submit</button>
+              </form>              
+
+        </div>
+    </div>
+</div>
+{% include "footer.html" %}
