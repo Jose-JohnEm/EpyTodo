@@ -29,7 +29,6 @@ def signin():
         id = check_user(request.form['username'], request.form['password'])
         user_id = id[0]
         if user_id != None:
-            print("L ============================>", user_id)
             return redirect('/task')
     return render_template("signin.html")
 
@@ -39,7 +38,6 @@ def contact():
 
 @app.route('/task/', methods=['GET', 'POST'])
 def todo():
-    print("USER ID ==>", user_id)
     if request.method == 'POST':
         create_task(user_id, request.form['title'], request.form['begin'], request.form['end'])
     return render_template("todo.html", usertasks=get_task(user_id), lenght=len(get_task(user_id)))
