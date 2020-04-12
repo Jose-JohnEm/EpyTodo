@@ -44,3 +44,9 @@ def todo():
 @app.route('/user/', methods=['GET', 'POST'])
 def user():
         return render_template("user.html", user_id=user_id)
+
+@app.route('/signout/', methods=['GET', 'POST'])
+def signout():
+        global user_id
+        user_id = 0
+        return redirect('/')
