@@ -1,5 +1,9 @@
-{% set active_page = "register" %}
+{% set active_page = "task" %}
 {% include "header.html" %}
+
+{% if user_id == 0 %}
+{% include "error/notlogged.html" %}
+{% else %}
 <div class="jumbotron">
   <div class="container" style="text-align: center;">
     <h1>TASK</h1>
@@ -72,4 +76,5 @@
     </div>
   </div>
 </div>
+{% endif %}
 {% include "footer.html" %}

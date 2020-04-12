@@ -1,5 +1,6 @@
 {% set active_page = "register" %}
 {% include "header.html" %}
+{% if user_id == 0 %}
 <div class="container">
         <div class="row">
         <div class="col-md-6 col-md-offset-3" style="text-align: center;">
@@ -19,4 +20,7 @@
         </div>
         </div>
     </div>
+{% else %}
+{% include "error/logged.html" %}
+{% endif %}
 {% include "footer.html" %}
