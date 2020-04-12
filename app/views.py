@@ -39,7 +39,8 @@ def contact():
 @app.route('/user/task/', methods=['GET', 'POST'])
 def todo():
     if request.method == 'POST':
-        create_task(user_id, request.form['title'], request.form['begin'], request.form['end'])
+        print(request.form['status'])
+        create_task(user_id, request.form['title'], request.form['begin'], request.form['end'], int(request.form['status']))
     return render_template("todo.html", usertasks=get_task(user_id), lenght=len(get_task(user_id)))
 
 @app.route('/user', methods=['GET', 'POST'])
