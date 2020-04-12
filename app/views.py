@@ -27,7 +27,6 @@ def signin():
     global user_id
     if request.method == 'POST':
         user_id = check_user(request.form['username'], request.form['password'])
-        print("USER ===>", user_id)
         if user_id != 0:
             return redirect('/user/task/')
     return render_template("signin.html", user_id=user_id)
@@ -39,7 +38,6 @@ def contact():
 @app.route('/user/task/', methods=['GET', 'POST'])
 def todo():
     if request.method == 'POST':
-        print(request.form['status'])
         create_task(user_id, request.form['title'], request.form['begin'], request.form['end'], int(request.form['status']))
     return render_template("todo.html", usertasks=get_task(user_id), lenght=len(get_task(user_id)), user_id=user_id)
 
