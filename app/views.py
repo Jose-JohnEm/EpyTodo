@@ -11,7 +11,7 @@ from app import user_id
 @app.route('/', methods=['GET'])
 @app.route('/index/', methods=['GET'])
 def home():
-        return render_template("index.html")
+        return render_template("index.html", user_id=user_id)
 
 @app.route('/register/', methods=['GET', 'POST'])
 def register():

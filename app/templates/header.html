@@ -30,12 +30,16 @@
           <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
               <li class="{{ 'active' if active_page == 'index' else '' }}"><a href="/">Home</a></li>
-              <li class="{{ 'active' if active_page == 'about' else '' }}"><a href="#">About</a></li>
               <li class="{{ 'active' if active_page == 'contact' else '' }}"><a href="/contact">Contact</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+              {% if user_id == 0 %}
               <li class="{{ 'active' if active_page == 'register' else '' }}"><a href="/register">Register</a></li>
               <li class="{{ 'active' if active_page == 'signin' else '' }}"><a href="/signin">Sign in</a></li>
+              {% else %}
+              <li class="{{ 'active' if active_page == 'user' else '' }}"><a href="/user">USERNAME</a></li>
+              <li class="{{ 'active' if active_page == 'task' else '' }}"><a href="/user/task">View your tasks</a></li>
+              {% endif %}
             </ul>
           </div><!--/.nav-collapse -->
         </div>

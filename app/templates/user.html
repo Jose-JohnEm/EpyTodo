@@ -1,5 +1,9 @@
 {% set active_page = "user" %}
 {% include "header.html" %}
+
+{% if user_id == 0 %}
+{% include "error/notlogged.html" %}
+{% else %}
 <div class="jumbotron">
   <div class="container" style="text-align: center;">
     <h1>YOUR PROFILE</h1>
@@ -13,7 +17,7 @@
             <h1>USERNAME</h1>
             <p>email@email.com</p>
             <p>You got $NB_TASK tasks</p>
-            <a class="btn btn-default" href="todo" role="button">View your tasks</a>
+            <a class="btn btn-default" href="user/task" role="button">View your tasks</a>
           </div>
         <div class="col-sm-3 col-md-6">
             <h1>CHANGE YOUR INFO</h1>
@@ -40,4 +44,5 @@
         </div>
     </div>
 </div>
+{% endif %}
 {% include "footer.html" %}
