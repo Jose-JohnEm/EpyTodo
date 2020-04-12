@@ -21,7 +21,13 @@
         <td>{{ usertasks[i][1] }}</td>
         <td>{{ usertasks[i][2] }}</td>
         <td>{{ usertasks[i][3] }}</td>
-        <td>{{ usertasks[i][4] }}</td>
+        {% if usertasks[i][4] == 1 %}
+        <td>Not Started</td>
+        {% elif usertasks[i][4] == 2 %}
+        <td>In Progress</td>
+        {% elif usertasks[i][4] == 3 %}
+        <td>Done</td>
+        {% endif %}
       </tr>
       {% endfor %}
     </table>
@@ -46,13 +52,13 @@
                   <p>Status : </p>
                   <div class="btn-group btn-group-justified" role="group" aria-label="...">
                       <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-warning">Not started</button>
+                        <button type="button" class="btn btn-warning" name="status" value="1">Not started</button>
                       </div>
                       <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-info">In progress</button>
+                        <button type="button" class="btn btn-info" name="status" value="2">In progress</button>
                       </div>
                       <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-success">Done</button>
+                        <button type="button" class="btn btn-success" name="status" value="3">Done</button>
                       </div>
                     </div>
                     <br>
