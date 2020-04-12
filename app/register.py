@@ -2,7 +2,7 @@ from app import app
 from flask import Flask, render_template, url_for, redirect, request
 import pymysql as sql
 from config import connection
-from signin import check_user
+from .signin import check_user
 
 def add_user(username, userpass):
     base = user_in_base(username)
