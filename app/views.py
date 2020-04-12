@@ -9,7 +9,7 @@ from .task import get_task
 from app import user_id
 
 @app.route('/', methods=['GET'])
-@app.route('/index', methods=['GET'])
+@app.route('/index/', methods=['GET'])
 def home():
         return render_template("index.html")
 
@@ -32,16 +32,17 @@ def signin():
             return redirect('/task')
     return render_template("signin.html")
 
-@app.route('/contact', methods=['GET', 'POST'])
+@app.route('/contact/', methods=['GET', 'POST'])
 def contact():
         return render_template("contact.html")
 
 @app.route('/task/', methods=['GET', 'POST'])
 def todo():
     if request.method == 'POST':
-        create_task(user_id, request.form['title'], request.form['begin'], request.form['end'])
+        print(request.form['status'])
+        create_task(user_id, request.form['title'], request.form['begin'], request.form['end'], int(request.form['status']))
     return render_template("todo.html", usertasks=get_task(user_id), lenght=len(get_task(user_id)))
 
-@app.route('/user', methods=['GET', 'POST'])
+@app.route('/user/', methods=['GET', 'POST'])
 def user():
         return render_template("user.html")
