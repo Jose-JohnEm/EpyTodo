@@ -12,7 +12,7 @@ def add_user(username, userpass):
                 sql = "INSERT INTO user (username, password) VALUES (%s, %s)"
                 cursor.execute(sql, (username, userpass))
             connection.commit()
-            return (check_user(username, userpass)[0])
+            return (check_user(username, userpass))
         finally:
             cursor.close()
     else:
