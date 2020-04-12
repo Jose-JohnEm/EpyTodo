@@ -19,24 +19,24 @@ def register():
     if request.method == 'POST':
         user_id = add_user((request.form['username']), request.form['password'])
         if user_id != 0:
-            return redirect('/task')
+            return redirect('/user/task/')
     return render_template("register.html")
 
 @app.route('/signin/', methods=['GET', 'POST'])
 def signin():
     global user_id
     if request.method == 'POST':
-        id = check_user(request.form['username'], request.form['password'])
-        user_id = id[0]
+        user_id = check_user(request.form['username'], request.form['password'])
+        print("USER ===>", user_id)
         if user_id != None:
-            return redirect('/task')
+            return redirect('/user/task/')
     return render_template("signin.html")
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
         return render_template("contact.html")
 
-@app.route('/task/', methods=['GET', 'POST'])
+@app.route('/user/task/', methods=['GET', 'POST'])
 def todo():
     if request.method == 'POST':
         create_task(user_id, request.form['title'], request.form['begin'], request.form['end'])

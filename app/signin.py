@@ -8,7 +8,10 @@ def check_user(username, userpass):
         with connection.cursor() as cursor:
             sql = "SELECT user_id FROM user WHERE username =%s and password =%s"
             cursor.execute(sql, (username, userpass))
-            user_id = cursor.fetchone()
+            res = cursor.fetchone()
     finally:
         cursor.close()
-    return user_id
+    if res == None:
+        return (0)
+    else:
+        return (res[0])
