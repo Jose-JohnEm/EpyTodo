@@ -28,7 +28,7 @@ def signin():
     if request.method == 'POST':
         user_id = check_user(request.form['username'], request.form['password'])
         print("USER ===>", user_id)
-        if user_id != None:
+        if user_id != 0:
             return redirect('/user/task/')
     return render_template("signin.html", user_id=user_id)
 
